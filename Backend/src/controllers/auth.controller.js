@@ -24,7 +24,11 @@ export const register = async (req, res) => {
     expiresIn: "1d",
   });
 
-  res.cookie("token", token);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
 
   res.status(201).json({
     message: "User created successfully",
@@ -53,7 +57,11 @@ export const login = async (req, res) => {
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
-  res.cookie("token", token);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
   res.status(200).json({
     message: "Login successful",
     user: {
@@ -69,7 +77,11 @@ export const logout = async (req, res) => {
   if (token) {
     const blacklistedToken = await BlacklistToken.create({ token });
   }
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
   res.status(200).json({ message: "Logout successful" });
 };
 
