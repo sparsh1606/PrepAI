@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://prep-ai-nine-kohl.vercel.app/",
+    origin: "https://prep-ai-nine-kohl.vercel.app",
     credentials: true,
   }),
 );
