@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { handleLogin } from "../services/Auth.js";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { SyncLoader } from "react-spinners";
 import { AuthContext } from "../context/AuthContext.jsx";
@@ -91,12 +91,12 @@ const Login = () => {
 
         <p className="mt-6 text-center text-sm text-slate-500">
           Don’t have an account?{" "}
-          <a
+          <Link
             href="/register"
             className="font-semibold text-cyan-600 hover:text-cyan-700 cursor-pointer"
           >
             Register
-          </a>
+          </Link>
         </p>
       </section>
     </main>
