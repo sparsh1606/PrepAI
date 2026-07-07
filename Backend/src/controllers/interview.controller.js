@@ -7,7 +7,7 @@ export const generateInterviewReport = async (req, res) => {
 
   let resume;
   // parse resume file to text
-  if (req.file.buffer) {
+  if (req.file) {
     const parser = new PDFParse(Uint8Array.from(req.file.buffer));
     const resumeText = await parser.getText();
 
