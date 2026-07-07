@@ -5,11 +5,16 @@ import { PDFParse } from "pdf-parse";
 export const generateInterviewReport = async (req, res) => {
   const { selfDescription, jobDescription } = req.body;
 
+  let resume;
   // parse resume file to text
-  const parser = new PDFParse(Uint8Array.from(req.file.buffer));
-  const resumeText = await parser.getText();
+  if (req.file.buffer) {
+    const parser = new PDFParse(Uint8Array.from(req.file.buffer));
+    const resumeText = await parser.getText();
 
-  const resume = resumeText.text;
+    resume = resumeText.text;
+  } else {
+    resume = "";
+  }
 
   const payload = await generateAiInterviewReport(
     resume,
@@ -55,9 +60,11 @@ export const getAllInterview = async (req, res) => {
   const userId = req.userId;
   const interviewReports = await InterviewReport.find({
     user: userId,
-  }).sort({createdAt : -1}).select(
-    "-resume -jobDescription -selfDescription -__v -technicalQuestions -behaviourQuestions -skillGaps -preparationPlan",
-  );
+  })
+    .sort({ createdAt: -1 })
+    .select(
+      "-resume -jobDescription -selfDescription -__v -technicalQuestions -behaviourQuestions -skillGaps -preparationPlan",
+    );
   if (!interviewReports) {
     return res.status(401).json({
       message: "Someting went wrong, unable to fetch interview reports.",
