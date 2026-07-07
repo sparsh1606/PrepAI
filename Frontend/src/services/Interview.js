@@ -2,7 +2,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api/interview",
+  baseURL: "https://prepai-vli9.onrender.com/api/interview",
   withCredentials: true,
 });
 
