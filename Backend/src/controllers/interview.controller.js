@@ -56,7 +56,7 @@ export const getAllInterview = async (req, res) => {
   const interviewReports = await InterviewReport.find({
     user: userId,
   }).sort({createdAt : -1}).select(
-    "-resume -jobDescription -selfDescription -__v -technicalQuestions -behaviourQuestions -skillGaps -preparationalPlan",
+    "-resume -jobDescription -selfDescription -__v -technicalQuestions -behaviourQuestions -skillGaps -preparationPlan",
   );
   if (!interviewReports) {
     return res.status(401).json({
