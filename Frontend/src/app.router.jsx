@@ -9,11 +9,11 @@ import LandingPage from "./pages/LandingPage.jsx";
 
 export const router = createBrowserRouter([
   {
-    path: "/home",
+    path: "/",
     element: <LandingPage />,
   },
   {
-    path: "/",
+    path: "/home",
     element: <Home />,
   },
   {

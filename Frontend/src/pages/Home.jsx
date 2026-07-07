@@ -71,7 +71,7 @@ const Home = () => {
       const result = await handleLogout();
       await getCurrentUser();
     } catch (error) {
-      navigate("/home");
+      navigate("/");
       setIsLogedin(false);
       toast.success("Logout successful");
     } finally {
@@ -117,7 +117,7 @@ const Home = () => {
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
           <span
             onClick={() => {
-              navigate("/home");
+              navigate("/");
             }}
             className="cursor-pointer text-4xl font-black tracking-tight text-black"
           >

@@ -45,7 +45,7 @@ const LandingPage = () => {
             Prep<span className="text-cyan-600">AI</span>
           </span>
           <button
-            onClick={() => navigate(isLogedin ? "/" : "/login")}
+            onClick={() => navigate(isLogedin ? "/home" : "/login")}
             className="rounded-xl bg-cyan-500 px-6 py-2 text-lg font-semibold text-white shadow-md transition hover:bg-cyan-600 cursor-pointer flex justify-center items-center"
           >
             {isLogedin ? "Get started" : "Login"}
@@ -281,7 +281,7 @@ const LandingPage = () => {
         </p>
 
         <button
-          onClick={() => navigate(isLogedin ? "/" : "/login")}
+          onClick={() => navigate(isLogedin ? "/home" : "/login")}
           className="mt-8 w-xl rounded-xl bg-cyan-500 px-6 py-3 text-lg font-semibold text-white shadow-md transition hover:bg-cyan-600 cursor-pointer"
         >
           Get Started

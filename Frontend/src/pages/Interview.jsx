@@ -68,7 +68,7 @@ const Interview = () => {
         <section className="border-b-2 md:border-slate-400/60 md:border-b-0 md:border-r-2 border-slate-400/60 w-full md:w-1/4 px-4 py-2 flex flex-col gap-6">
           <div className="w-full border-b border-slate-400/80 pb-6 flex items-center">
             <div
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/home")}
               className="w-5 h-5 p-1 shadow-lg text-white hover:bg-red-600/60 cursor-pointer transition  rounded-full flex items-center justify-center bg-red-800"
             >
               <X size={20} />
