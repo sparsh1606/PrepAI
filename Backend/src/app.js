@@ -6,14 +6,14 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://prep-ai-nu-six.vercel.app/",
+    origin: "https://prep-ai-nu-six.vercel.app",
     credentials: true,
   }),
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/interview", interviewRoutes);
